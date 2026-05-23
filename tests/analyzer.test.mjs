@@ -7,7 +7,7 @@ import { test } from "node:test";
 
 import {
   buildProjectIndex,
-  formatDebtReport,
+  formatCleanVibeReport,
   getCurrentDiff,
   runCleanVibeNextAudit,
   runCleanVibeReactAudit,
@@ -244,7 +244,7 @@ test("scanDebtRisks returns at most seven teamlead-ready findings with stable sc
   }
 });
 
-test("formatDebtReport returns a concise Markdown report instead of raw JSON", async () => {
+test("formatCleanVibeReport returns a concise Markdown report instead of raw JSON", async () => {
   const result = {
     summary: {
       status: "debt-risk",
@@ -274,9 +274,12 @@ test("formatDebtReport returns a concise Markdown report instead of raw JSON", a
     ],
   };
 
-  const report = formatDebtReport(result);
+  const report = formatCleanVibeReport(result, {
+    title: "CleanVibe Diff Audit",
+    scope: "Current git diff plus untracked source files",
+  });
 
-  assert.match(report, /^## Vibe Audit/);
+  assert.match(report, /^## CleanVibe Diff Audit/);
   assert.match(report, /Status: Debt risk/);
   assert.match(report, /Untracked included: 1/);
   assert.match(report, /Reuse target: `src\/shared\/utils\/money.ts#formatCurrency`/);

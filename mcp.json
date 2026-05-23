@@ -1,8 +1,12 @@
 {
   "mcpServers": {
-    "cleanvibe": {
+    "mcp": {
+      "type": "stdio",
       "command": "node",
-      "args": ["./src/mcp/server.mjs"]
+      "args": ["./src/mcp/server.mjs"],
+      "env": {
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+      }
     }
   }
 }

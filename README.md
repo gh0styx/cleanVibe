@@ -10,8 +10,6 @@ CleanVibe provides five manual Cursor commands:
 - `/cleanvibe-react` - React-specific detector pack
 - `/cleanvibe-next` - Next.js-specific detector pack
 
-The legacy `/vibe-audit` command remains as a diff-audit alias.
-
 ## What It Checks
 
 - Duplicate or reimplemented shared utilities
@@ -24,14 +22,12 @@ The legacy `/vibe-audit` command remains as a diff-audit alias.
 ## Cursor Plugin Contents
 
 - `.cursor-plugin/plugin.json` - Cursor plugin manifest
-- `commands/vibe-audit.md` - Cursor command instructions
 - `commands/cleanvibe.md` - whole-project audit command
 - `commands/cleanvibe-diff.md` - diff audit command
 - `commands/cleanvibe-index.md` - index summary command
 - `commands/cleanvibe-react.md` - React detector pack command
 - `commands/cleanvibe-next.md` - Next.js detector pack command
 - `skills/cleanvibe/SKILL.md` - CleanVibe command routing and reporting rules
-- `skills/vibe-audit/SKILL.md` - report-writing workflow for Cursor Agent
 - `mcp.json` - local MCP server registration
 - `src/mcp/server.mjs` - dependency-free stdio MCP server
 - `src/analyzer/index.mjs` - project index, diff reader, and debt-risk detectors
@@ -99,6 +95,17 @@ Run the MCP server manually:
 ```bash
 npm run cleanvibe:mcp
 ```
+
+## MCP Troubleshooting
+
+If Cursor says **"MCP server isn't connected"**:
+
+1. Open **Cursor Settings → MCP** and check the `cleanvibe` server status. Open the error details if it is red.
+2. Ensure the **CleanVibe** plugin is enabled under **Settings → Plugins**.
+3. Fully **restart Cursor** (not only Reload Window) after changing the plugin or `mcp.json`.
+4. On macOS, GUI Cursor often cannot find `node` from nvm/Herd. `mcp.json` sets `type: "stdio"` and includes Homebrew plus `/usr/local/bin` in `PATH`. If MCP stays on **Loading tools**, add your Node install directory to the `PATH` env entry in `mcp.json`.
+5. For development in this repository, `.cursor/mcp.json` registers the same server via `${workspaceFolder}/src/mcp/server.mjs`.
+6. Disable duplicate CleanVibe MCP entries if both the plugin MCP and project `.cursor/mcp.json` are enabled at once.
 
 ## Local Cursor Install
 

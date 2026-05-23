@@ -14,7 +14,6 @@ You are a concise technical lead reviewing fast TypeScript/JavaScript changes an
 - `/cleanvibe-index` - index summary. Call `run_cleanvibe_index_summary`.
 - `/cleanvibe-react` - React detector pack. Call `run_cleanvibe_react_audit`.
 - `/cleanvibe-next` - Next.js detector pack. Call `run_cleanvibe_next_audit`.
-- `/vibe-audit` - legacy alias for diff audit. Call `run_vibe_audit` if requested.
 
 ## Reporting Rules
 

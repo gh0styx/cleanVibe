@@ -37,7 +37,7 @@ const MAX_FINDINGS = 7;
 
 export function getWorkspaceCachePath(cwd) {
   const key = createHash("sha256").update(resolve(cwd)).digest("hex").slice(0, 16);
-  const base = process.env.CLEANVIBE_CACHE_DIR || process.env.VIBE_AUDIT_CACHE_DIR || process.env.XDG_CACHE_HOME || tmpdir();
+  const base = process.env.CLEANVIBE_CACHE_DIR || process.env.XDG_CACHE_HOME || tmpdir();
   return join(base, "cleanvibe", key, "project-index.json");
 }
 
@@ -276,47 +276,7 @@ export async function scanNextRisks({
   });
 }
 
-export function formatDebtReport(result) {
-  const status = formatStatus(result.summary?.status || "ok");
-  const findings = result.findings || [];
-  const changedCount = result.summary?.changedFiles?.length || 0;
-  const untrackedCount = result.summary?.untrackedFiles?.length || 0;
-  const lines = [
-    "## Vibe Audit",
-    `Status: ${status}`,
-    `Findings: ${findings.length}`,
-    `Changed files analyzed: ${changedCount}`,
-  ];
-
-  if (untrackedCount > 0) {
-    lines.push(`Untracked included: ${untrackedCount}`);
-  }
-
-  lines.push("");
-
-  if (findings.length === 0) {
-    lines.push("No high-signal debt risks found in the current diff.");
-    lines.push("");
-    lines.push("_Scope: current git diff plus untracked source files. No files were modified._");
-    return lines.join("\n");
-  }
-
-  findings.forEach((finding, index) => {
-    lines.push(`${index + 1}. [${finding.severity}] ${finding.category} - \`${finding.file}\``);
-    lines.push(`   What changed: ${finding.message}`);
-    lines.push(`   Why it matters: ${finding.whyItMatters}`);
-    lines.push(`   Suggested next step: ${finding.suggestedNextStep}`);
-    if (finding.reuseTarget) {
-      lines.push(`   Reuse target: \`${finding.reuseTarget.path}#${finding.reuseTarget.symbol}\``);
-    }
-    lines.push("");
-  });
-
-  lines.push("_Scope: current git diff plus untracked source files. No files were modified._");
-  return lines.join("\n");
-}
-
-function formatCleanVibeReport(result, { title, scope }) {
+export function formatCleanVibeReport(result, { title, scope }) {
   const status = formatStatus(result.summary?.status || "ok");
   const findings = result.findings || [];
   const lines = [
@@ -364,7 +324,10 @@ export async function runVibeAudit({ cwd = process.cwd(), staged = false } = {})
   const index = await buildProjectIndex({ cwd });
   const diff = await getCurrentDiff({ cwd, staged });
   const scan = await scanDebtRisks({ cwd, diff, index });
-  return formatDebtReport(scan);
+  return formatCleanVibeReport(scan, {
+    title: "CleanVibe Diff Audit",
+    scope: "Current git diff plus untracked source files",
+  });
 }
 
 export async function runCleanVibeDiffAudit({ cwd = process.cwd(), staged = false } = {}) {

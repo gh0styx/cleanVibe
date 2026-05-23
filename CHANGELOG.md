@@ -15,7 +15,6 @@ The format follows Keep a Changelog style, and this project uses semantic versio
   - `/cleanvibe-index`
   - `/cleanvibe-react`
   - `/cleanvibe-next`
-  - `/vibe-audit` legacy alias
 - Local MCP server with CleanVibe audit tools.
 - TypeScript/JavaScript project index with external cache.
 - Diff audit with untracked source-file support.
