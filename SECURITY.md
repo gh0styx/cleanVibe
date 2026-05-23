@@ -6,7 +6,9 @@ CleanVibe is pre-1.0. Security fixes target the latest released version.
 
 ## Reporting a Vulnerability
 
-Please report security issues privately by opening a GitHub security advisory in the public repository once it is available.
+Please report security issues privately by opening a GitHub security advisory at:
+
+https://github.com/gh0styx/cleanVibe/security/advisories/new
 
 Do not publish exploit details in public issues before a fix is available.
 

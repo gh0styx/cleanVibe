@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "vibe-audit": {
+    "cleanvibe": {
       "command": "node",
       "args": ["./src/mcp/server.mjs"]
     }

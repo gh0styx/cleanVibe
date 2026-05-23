@@ -18,9 +18,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cleanvibe/cleanvibe.git"
+    "url": "https://github.com/gh0styx/cleanVibe.git"
   },
-  "homepage": "https://github.com/cleanvibe/cleanvibe#readme",
+  "homepage": "https://github.com/gh0styx/cleanVibe#readme",
   "license": "MIT",
   "keywords": [
     "cursor-plugin",

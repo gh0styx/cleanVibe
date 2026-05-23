@@ -2,7 +2,7 @@
 
 Cursor plugin-only auditor for AI-speed TypeScript and JavaScript coding.
 
-CleanVibe provides three manual Cursor commands:
+CleanVibe provides five manual Cursor commands:
 
 - `/cleanvibe` - whole-project technical debt audit
 - `/cleanvibe-diff` - current git diff plus untracked source files
@@ -78,6 +78,14 @@ The local cache is written outside the project by default:
 - `XDG_CACHE_HOME` if set
 - otherwise the OS temp directory
 
+## Limitations
+
+- CleanVibe uses heuristic static analysis, not a full TypeScript type checker or AST-based linter.
+- The detector surface is focused on TypeScript and JavaScript projects.
+- Diff audits require git, and uncommitted generated files can affect the report.
+- Reports intentionally cap findings to the highest-signal items instead of listing every possible issue.
+- Cursor Agent must invoke the CleanVibe MCP tools for the commands to return live audit results.
+
 ## Development
 
 No npm dependencies are required.
@@ -98,7 +106,7 @@ For local testing on macOS:
 
 ```bash
 mkdir -p ~/.cursor/plugins/local
-ln -sfn /Users/gh0sty/Documents/dev/vibecoding-cursor-sdk \
+ln -sfn /Users/gh0sty/Documents/dev/cleanVibe \
   ~/.cursor/plugins/local/cleanvibe
 ```
 
@@ -106,7 +114,7 @@ Then run `Developer: Reload Window` in Cursor. If Cursor still does not show the
 
 ```bash
 rm -rf ~/.cursor/plugins/local/cleanvibe
-cp -R /Users/gh0sty/Documents/dev/vibecoding-cursor-sdk \
+cp -R /Users/gh0sty/Documents/dev/cleanVibe \
   ~/.cursor/plugins/local/cleanvibe
 ```
 

@@ -5,7 +5,7 @@ This checklist prepares CleanVibe for public GitHub release and Cursor Marketpla
 ## 1. Repository Readiness
 
 - Repository is public.
-- Repository name is `cleanvibe`.
+- Repository is published at the same public GitHub URL used by the manifest.
 - Default branch contains:
   - `.cursor-plugin/plugin.json`
   - `commands/`
@@ -62,6 +62,8 @@ Reload Cursor and run:
 /cleanvibe
 /cleanvibe-diff
 /cleanvibe-index
+/cleanvibe-react
+/cleanvibe-next
 ```
 
 ## 4. Marketplace Submission

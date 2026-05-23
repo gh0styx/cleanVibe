@@ -193,7 +193,7 @@ async function handleMessage(message) {
       return sendResult(message.id, {
         protocolVersion: "2024-11-05",
         capabilities: { tools: {} },
-        serverInfo: { name: "vibe-audit", version: "0.1.0" },
+        serverInfo: { name: "cleanvibe", version: "0.1.0" },
       });
     }
 

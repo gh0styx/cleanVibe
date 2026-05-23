@@ -2,7 +2,7 @@
 
 Run a concise technical debt review for the current workspace diff.
 
-Use the `vibe-audit` skill and the `vibe-audit` MCP tool:
+Use the legacy `vibe-audit` skill and the `run_vibe_audit` MCP tool:
 
 1. Call `run_vibe_audit` for the current workspace.
 2. Return the Markdown report exactly as the tool returns it.
