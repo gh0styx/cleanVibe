@@ -1,0 +1,37 @@
+{
+  "name": "cleanvibe-cursor",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "CleanVibe Cursor plugin for diff and whole-project technical debt auditing of TypeScript and JavaScript projects.",
+  "author": {
+    "name": "CleanVibe",
+    "email": "nice140@icloud.com"
+  },
+  "bin": {
+    "cleanvibe-mcp": "./src/mcp/server.mjs",
+    "vibe-audit-mcp": "./src/mcp/server.mjs"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "cleanvibe:mcp": "node ./src/mcp/server.mjs",
+    "vibe-audit:mcp": "node ./src/mcp/server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cleanvibe/cleanvibe.git"
+  },
+  "homepage": "https://github.com/cleanvibe/cleanvibe#readme",
+  "license": "MIT",
+  "keywords": [
+    "cursor-plugin",
+    "cleanvibe",
+    "technical-debt",
+    "code-review",
+    "typescript",
+    "javascript",
+    "architecture"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

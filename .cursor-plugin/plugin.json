@@ -1,0 +1,27 @@
+{
+  "name": "cleanvibe",
+  "displayName": "CleanVibe",
+  "version": "0.1.0",
+  "description": "A Cursor plugin-only technical debt auditor for AI-speed TypeScript and JavaScript coding.",
+  "author": {
+    "name": "CleanVibe",
+    "email": "nice140@icloud.com"
+  },
+  "homepage": "https://github.com/cleanvibe/cleanvibe",
+  "repository": "https://github.com/cleanvibe/cleanvibe",
+  "license": "MIT",
+  "keywords": [
+    "cursor-plugin",
+    "cleanvibe",
+    "technical-debt",
+    "code-review",
+    "typescript",
+    "javascript",
+    "architecture"
+  ],
+  "category": "developer-tools",
+  "tags": ["code-review", "technical-debt", "architecture", "workflow"],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "mcp": "./mcp.json"
+}

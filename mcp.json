@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vibe-audit": {
+      "command": "node",
+      "args": ["./src/mcp/server.mjs"]
+    }
+  }
+}
